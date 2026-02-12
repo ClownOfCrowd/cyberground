@@ -1,7 +1,9 @@
 import React from "react";
+import { useI18n } from "../i18n/LanguageContext.jsx";
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  const { translations } = useI18n();
 
   return (
     <footer
@@ -12,10 +14,13 @@ const Footer = () => {
       <div className="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div className="flex flex-col gap-1">
           <span className="text-[#00FF41]">
-            &gt; System Status: <span className="text-[#a3ffb8]">ONLINE</span>
+            {translations.footer.systemStatusLabel}{" "}
+            <span className="text-[#a3ffb8]">
+              {translations.footer.systemStatusOnline}
+            </span>
           </span>
           <span className="text-[10px] sm:text-xs text-[#7adf9c]">
-            © {year} Cyber Tech Services. All rights reserved.
+            © {year} {translations.footer.copyrightPrefix}
           </span>
         </div>
 
@@ -24,7 +29,7 @@ const Footer = () => {
             href="mailto:youremail@example.com"
             className="hover:text-[#00FF41] transition-colors"
           >
-            email: youremail@example.com
+            {translations.footer.emailLabel} youremail@example.com
           </a>
           <a
             href="https://t.me/your_handle"
@@ -32,7 +37,7 @@ const Footer = () => {
             rel="noreferrer"
             className="hover:text-[#00FF41] transition-colors"
           >
-            telegram: @your_handle
+            {translations.footer.telegramLabel} @your_handle
           </a>
           <a
             href="https://github.com/your_github"
@@ -40,7 +45,7 @@ const Footer = () => {
             rel="noreferrer"
             className="hover:text-[#00FF41] transition-colors"
           >
-            github: your_github
+            {translations.footer.githubLabel} your_github
           </a>
         </div>
       </div>
@@ -49,4 +54,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
 
